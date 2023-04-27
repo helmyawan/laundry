@@ -176,7 +176,7 @@ ${el.outerHTML}
         } else {
             value = value === undefined ? '' : value
 
-            el.value = value
+            el.value = value;
         }
     },
 
