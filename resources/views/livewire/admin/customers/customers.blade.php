@@ -1,12 +1,12 @@
 <div>
     <div class="row align-items-center justify-content-between mb-4">
         <div class="col">
-            <h5 class="fw-500 text-white">{{ $lang->data['customers'] ?? 'Pelanggan' }}</h5>
+            <h5 class="fw-500 text-white">{{ $lang->data['customers'] ?? 'Customers' }}</h5>
         </div>
         <div class="col-auto">
             <a data-bs-toggle="modal" data-bs-target="#addcustomer" wire:click="resetInputFields"
                 class="btn btn-icon btn-3 btn-white text-primary mb-0">
-                <i class="fa fa-plus me-2"></i> {{ $lang->data['add_new_customer'] ?? 'Tambah Pelanggan Baru' }}
+                <i class="fa fa-plus me-2"></i> {{ $lang->data['add_new_customer'] ?? 'Add New Customer' }}
             </a>
         </div>
     </div>
@@ -28,11 +28,11 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xs opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xs opacity-7 ps-2">
-                                        {{ $lang->data['customer_name'] ?? 'Nama Pelanggan' }}</th>
+                                        {{ $lang->data['customer_name'] ?? 'Customer Name' }}</th>
                                     <th class="text-uppercase text-secondary text-xs  opacity-7">
-                                        {{ $lang->data['contact'] ?? 'Kontak' }}</th>
+                                        {{ $lang->data['contact'] ?? 'Contact' }}</th>
                                     <th class="text-uppercase text-secondary text-xs opacity-7 ps-2">
-                                        {{ $lang->data['address'] ?? 'Alamat' }}</th>
+                                        {{ $lang->data['address'] ?? 'Address' }}</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -59,7 +59,7 @@
                                             <a data-bs-toggle="modal" data-bs-target="#editcustomer"
                                                 wire:click="edit({{ $row->id }})" type="button"
                                                 class="badge badge-xs badge-warning fw-600 text-xs">
-                                                {{ $lang->data['edit'] ?? 'edit' }}
+                                                {{ $lang->data['edit'] ?? 'Edit' }}
                                             </a>
                                         </td>
                                     </tr>
@@ -103,7 +103,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title fw-600" id="addcustomer">{{ $lang->data['add_customer'] ?? 'Tambah Pelanggan' }}
+                    <h6 class="modal-title fw-600" id="addcustomer">{{ $lang->data['add_customer'] ?? 'Add Customer' }}
                     </h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -113,20 +113,20 @@
                     <div class="modal-body">
                         <div class="row g-2 align-items-center">
                             <div class="col-md-12 mb-1">
-                                <label class="form-label">{{ $lang->data['customer_name'] ?? 'Nama Pelanggan' }}
+                                <label class="form-label">{{ $lang->data['customer_name'] ?? 'Customer Name' }}
                                     <span class="text-danger">*</span></label>
                                 <input type="text" required class="form-control"
-                                    placeholder="{{ $lang->data['enter_customer_name'] ?? 'Masukkan Nama Pelanggan' }}"
+                                    placeholder="{{ $lang->data['enter_customer_name'] ?? 'Enter Customer Name' }}"
                                     wire:model="name">
                                 @error('name')
                                     <span class="error text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 mb-1">
-                                <label class="form-label">{{ $lang->data['phone_number'] ?? 'Nomor Hp' }} <span
+                                <label class="form-label">{{ $lang->data['phone_number'] ?? 'Phone Number' }} <span
                                         class="text-danger">*</span></label>
                                 <input type="text" required class="form-control"
-                                    placeholder="{{ $lang->data['enter_phone_number'] ?? 'Masukkan Nomor Hp' }}"
+                                    placeholder="{{ $lang->data['enter_phone_number'] ?? 'Enter Phone Number' }}"
                                     wire:model="phone">
                                 @error('phone')
                                     <span class="error text-danger">{{ $message }}</span>
@@ -135,24 +135,24 @@
                             <div class="col-md-12 mb-1">
                                 <label class="form-label">{{ $lang->data['email'] ?? 'Email' }}</label>
                                 <input type="text" class="form-control"
-                                    placeholder="{{ $lang->data['enter_email'] ?? 'Masukkan Email' }}" wire:model="email">
+                                    placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}" wire:model="email">
                                 @error('email')
                                     <span class="error text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 mb-1">
-                                <label class="form-label">{{ $lang->data['tax_number'] ?? 'Nomor NPWP' }}</label>
+                                <label class="form-label">{{ $lang->data['tax_number'] ?? 'Tax Number' }}</label>
                                 <input type="text" class="form-control"
-                                    placeholder="{{ $lang->data['enter_tax_number'] ?? 'Masukkan Nomor NPWP' }}"
+                                    placeholder="{{ $lang->data['enter_tax_number'] ?? 'Enter Tax Number' }}"
                                     wire:model="tax_number">
                                 @error('tax_number')
                                     <span class="error text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="form-label">{{ $lang->data['address'] ?? 'Alamat' }}</label>
+                                <label class="form-label">{{ $lang->data['address'] ?? 'Address' }}</label>
                                 <textarea type="text" class="form-control"
-                                    placeholder="{{ $lang->data['enter_address'] ?? 'Masukkan Alamat' }}"
+                                    placeholder="{{ $lang->data['enter_address'] ?? 'Enter Address' }}"
                                     wire:model="address"></textarea>
                                 @error('address')
                                     <span class="error text-danger">{{ $message }}</span>
@@ -163,16 +163,16 @@
                                     <input class="form-check-input" type="checkbox" id="employee" checked
                                         wire:model="is_active">
                                     <label class="form-check-label"
-                                        for="employee">{{ $lang->data['is_active'] ?? 'Aktif' }} ?</label>
+                                        for="employee">{{ $lang->data['is_active'] ?? 'Is Active' }} ?</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Batal' }}</button>
+                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Cancel' }}</button>
                         <button type="submit" class="btn btn-primary"
-                            wire:click.prevent="store()">{{ $lang->data['save'] ?? 'Simpan' }}</button>
+                            wire:click.prevent="store()">{{ $lang->data['save'] ?? 'Save' }}</button>
                     </div>
                 </form>
             </div>
@@ -184,7 +184,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h6 class="modal-title fw-600" id="editcustomer">
-                        {{ $lang->data['enter_customer'] ?? 'Masukkan Pelanggan' }}</h6>
+                        {{ $lang->data['enter_customer'] ?? 'Enter Customer' }}</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -193,20 +193,20 @@
                     <div class="modal-body">
                         <div class="row g-2 align-items-center">
                             <div class="col-md-12 mb-1">
-                                <label class="form-label">{{ $lang->data['customer_name'] ?? 'Nama Pelanggan' }}
+                                <label class="form-label">{{ $lang->data['customer_name'] ?? 'Customer Name' }}
                                     <span class="text-danger">*</span></label>
                                 <input type="text" required class="form-control"
-                                    placeholder="{{ $lang->data['enter_customer_name'] ?? 'Masukkan Nama Pelanggan' }}"
+                                    placeholder="{{ $lang->data['enter_customer_name'] ?? 'Enter Customer Name' }}"
                                     wire:model="name">
                                 @error('name')
                                     <span class="error text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 mb-1">
-                                <label class="form-label">{{ $lang->data['phone_number'] ?? 'Nomor Hp' }} <span
+                                <label class="form-label">{{ $lang->data['phone_number'] ?? 'Phone Number' }} <span
                                         class="text-danger">*</span></label>
                                 <input type="text" required class="form-control"
-                                    placeholder="{{ $lang->data['enter_phone_number'] ?? 'Masukkan Nomor Hp' }}"
+                                    placeholder="{{ $lang->data['enter_phone_number'] ?? 'Enter Phone Number' }}"
                                     wire:model="phone">
                                 @error('phone')
                                     <span class="error text-danger">{{ $message }}</span>
@@ -215,24 +215,24 @@
                             <div class="col-md-12 mb-1">
                                 <label class="form-label">{{ $lang->data['email'] ?? 'Email' }}</label>
                                 <input type="text" class="form-control"
-                                    placeholder="{{ $lang->data['enter_email'] ?? 'Masukkan email' }}" wire:model="email">
+                                    placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}" wire:model="email">
                                 @error('email')
                                     <span class="error text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 mb-1">
-                                <label class="form-label">{{ $lang->data['tax_number'] ?? 'Nomor NPWP' }}</label>
+                                <label class="form-label">{{ $lang->data['tax_number'] ?? 'Tax Number' }}</label>
                                 <input type="text" class="form-control"
-                                    placeholder="{{ $lang->data['enter_tax_number'] ?? 'Masukkan Nomor NPWP' }}"
+                                    placeholder="{{ $lang->data['enter_tax_number'] ?? 'Enter Tax Number' }}"
                                     wire:model="tax_number">
                                 @error('tax_number')
                                     <span class="error text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="form-label">{{ $lang->data['address'] ?? 'Alamat' }}</label>
+                                <label class="form-label">{{ $lang->data['address'] ?? 'Address' }}</label>
                                 <textarea type="text" class="form-control"
-                                    placeholder="{{ $lang->data['enter_address'] ?? 'Masukkan Alamat' }}"
+                                    placeholder="{{ $lang->data['enter_address'] ?? 'Enter Address' }}"
                                     wire:model="address"></textarea>
                                 @error('address')
                                     <span class="error text-danger">{{ $message }}</span>
@@ -243,16 +243,16 @@
                                     <input class="form-check-input" type="checkbox" id="employee" checked
                                         wire:model="is_active">
                                     <label class="form-check-label"
-                                        for="employee">{{ $lang->data['is_active'] ?? 'Aktif' }} ?</label>
+                                        for="employee">{{ $lang->data['is_active'] ?? 'Is Active' }} ?</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Batal' }}</button>
+                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Cancel' }}</button>
                         <button type="submit" class="btn btn-primary"
-                            wire:click.prevent="update()">{{ $lang->data['save'] ?? 'Simpan' }}</button>
+                            wire:click.prevent="update()">{{ $lang->data['save'] ?? 'Save' }}</button>
                     </div>
                 </form>
             </div>

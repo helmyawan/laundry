@@ -1,12 +1,12 @@
 <div>
     <div class="row align-items-center justify-content-between mb-4">
         <div class="col">
-            <h5 class="fw-500 text-white">{{ $lang->data['expense_category'] ?? 'Kategori Pengeluaran' }}</h5>
+            <h5 class="fw-500 text-white">{{ $lang->data['expense_category'] ?? 'Expense Category' }}</h5>
         </div>
         <div class="col-auto">
             <a data-bs-toggle="modal" data-bs-target="#addcategory" wire:click="resetInputFields"
                 class="btn btn-icon btn-3 btn-white text-primary mb-0">
-                <i class="fa fa-plus me-2"></i> {{ $lang->data['add_new_category'] ?? 'Tambah Kategori Baru' }}
+                <i class="fa fa-plus me-2"></i> {{ $lang->data['add_new_category'] ?? 'Add New Category' }}
             </a>
         </div>
     </div>
@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <input type="text" class="form-control"
-                                placeholder="{{ $lang->data['search_here'] ?? 'Cari Disini' }}" wire:model="search">
+                                placeholder="{{ $lang->data['search_here'] ?? 'Search here' }}" wire:model="search">
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xs opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xs opacity-7 ps-2">
-                                        {{ $lang->data['expense_category'] ?? 'Kategori Pengeluaran' }}</th>
+                                        {{ $lang->data['expense_category'] ?? 'Expense Category' }}</th>
                                     <th class="text-center text-uppercase text-secondary text-xs opacity-7">
                                         {{ $lang->data['status'] ?? 'Status' }}</th>
                                     <th class="text-uppercase text-secondary text-xs opacity-7 ps-2">
@@ -84,7 +84,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h6 class="modal-title fw-600">
-                        {{ $lang->data['add_Expense_category'] ?? 'Tambah Kategori Pengeluaran' }}
+                        {{ $lang->data['add_Expense_category'] ?? 'Add Expense Category' }}
                     </h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -94,10 +94,10 @@
                     <div class="modal-body">
                         <div class="row g-3 align-items-center">
                             <div class="col-md-12">
-                                <label class="form-label">{{ $lang->data['category_name'] ?? 'Nama Kategori' }}
+                                <label class="form-label">{{ $lang->data['category_name'] ?? 'Category Name' }}
                                     <span class="text-danger">*</span></label>
                                 <input type="text" required class="form-control"
-                                    placeholder="{{ $lang->data['enter_category_name'] ?? 'Masukkan Nama Kategori' }}"
+                                    placeholder="{{ $lang->data['enter_category_name'] ?? 'Enter Category Name' }}"
                                     wire:model="expense_category_name">
                                 @error('expense_category_name')
                                     <span class="error text-danger">{{ $message }}</span>
@@ -105,12 +105,12 @@
                             </div>
                             <div class="col-md-12">
                                 <label
-                                    class="form-label">{{ $lang->data['category_type'] ?? 'Tipe Kategori' }}<span
+                                    class="form-label">{{ $lang->data['category_type'] ?? 'Category Type' }}<span
                                         class="text-danger">*</span></label>
                                 <select class="form-select" wire:model="expense_category_type"
                                     wire:change="changeCategoryType">
                                     <option class="select-box" value="">
-                                        {{ $lang->data['choose_expense_category'] ?? 'Pilh Kategori Pengeluaran' }}
+                                        {{ $lang->data['choose_expense_category'] ?? 'Choose Expense Category' }}
                                     </option>
                                     <option class="select-box" value="1">{{ $lang->data['asset'] ?? 'Asset' }}
                                     </option>
@@ -125,9 +125,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Batal' }}</button>
+                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Cancel' }}</button>
                         <button type="submit" class="btn btn-primary"
-                            wire:click.prevent="store()">{{ $lang->data['save'] ?? 'Simpan' }}</button>
+                            wire:click.prevent="store()">{{ $lang->data['save'] ?? 'Save' }}</button>
                     </div>
                 </form>
             </div>
